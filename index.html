@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+    <html class="ui-mobile-rendering">
+    <head>
+    <title>ORAZ - Helping With Finding A Camera</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/jquery.mobile-1.0.1.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+   
+    
+    
+    <!-------------------------------------------home-------------------------->
+        <script type="text/template" id="home">
+        
+        <div data-role="header" data-position="fixed" data-theme="a">
+            <h1>ORAZ</h1>
+	</div>
+	
+	  <div data-role="header" data-position="fixed" data-theme="d">      
+	<div data-role="navbar" class="nav-glyphish-example" data-theme="d">
+		<ul>
+		    <li><a href="#" id="house" data-role="button" data-icon="custom" data-role="notext">Home</a></li>
+		    <li><a href="#favs" id="star" data-role="button" data-icon="custom">Favorites</a></li>
+		    <li><a href="#settings" id="setting" data-role="button" data-icon="custom">Settings</a></li>
+		    <li><a href="#about" id="info" data-role="button" data-icon="custom">Info</a></li>
+                </ul>
+	</div><!--Navbar-->
+	</div>
+	
+        <div data-role="content" id="h">
+          <p></p><p></p>
+          <input type="search" name="search" id="pictureInput" value="" class="but" placeholder="Search Camera or Pictures..."/>
+            
+           <div id=searchbuttons data-role="controlgroup" data-type="horizontal">
+	        <a href="#cameraList" input type="button"  data-inline = "true" value="Search Pictures" onclick="getCameraModels()"> Search by Brand </a>
+	        <a href="#results" input type="button"  data-inline = "true" value="Search Pictures" onclick="getPictures()"> Search by Camera </a>
+	    </div>
+	    
+	    <p>Created By Orazio Lentini and Krunal Intwala.</p>
+		<p>Powered by flickr</p> 
+	</div>
+
+    
+     </script>
+	
+    <!-------------------------------------------cameraList-------------------------->
+     <script type="text/template" id="cameraList">
+
+        <div data-role="header" >
+	    <h1>Camera List</h1>
+        </div>
+	
+	<div data-role="navbar" data-position="fixed" class="nav-glyphish-example" data-theme="d">
+		<ul>
+		    <li><a href="#" id="house" data-role="button" data-icon="custom" data-role="notext">Home</a></li>
+		    <li><a href="#favs" id="star" data-role="button" data-icon="custom">Favorites</a></li>
+		    <li><a href="#settings" id="setting" data-role="button" data-icon="custom">Settings</a></li>
+		    <li><a href="#about" id="info" data-role="button" data-icon="custom">Info</a></li>
+                </ul>
+	</div><!--Navbar-->
+	
+	<p></p><p></p>
+	<div id="cameraModels" data-role="content">
+		  <ul data-role="listview">
+		  </ul>
+	</div>
+	
+    </script>
+	<!-------------------------------------------favorites-------------------------->
+    <script type="text/template" id="favs">
+
+        <div data-role="header" data-position="fixed">
+            <h1>Favorites</h1>
+        </div>
+
+	<div data-role="navbar" class="nav-glyphish-example" data-theme="d">
+	  <ul>
+	      <li><a href="#" id="house" data-role="button" data-icon="custom" data-role="notext">Home</a></li>
+	      <li><a href="#favs" id="star" data-role="button" data-icon="custom">Favorites</a></li>
+	      <li><a href="#settings" id="setting" data-role="button" data-icon="custom">Settings</a></li>
+	      <li><a href="#about" id="info" data-role="button" data-icon="custom">Info</a></li>
+	  </ul>
+	</div><!--Navbar-->
+
+	<p></p>
+        <div id="fav" data-role="content">
+	    <ul data-role="listview">
+	    </ul>
+	</div>
+   
+         <div data-role="footer" data-position="fixed" data-theme="d">
+	    <div data-role="navbar">
+		<ul>
+		  <a  id="refresh" data-icon="custom" data-iconpos="right" onclick="loadFavs()">Update List</a>
+		  <a  id="delete" data-icon="custom" data-iconpos="right" onclick="clearFavs()">Clear List</a>
+		</ul>
+	    </div><!--Navbar-->
+	</div><!--Footer-->
+	
+    </script>
+    
+    <!-------------------------------------------Setting page-------------------------->
+
+<script type="text/template" id="settings">
+
+    <div data-role="header" data-position="fixed">
+      <h1>Settings</h1>
+    </div>
+
+    <div data-role="navbar" class="nav-glyphish-example" data-theme="d">
+		<ul>
+		    <li><a href="#" id="house" data-role="button" data-icon="custom" data-role="notext">Home</a></li>
+		    <li><a href="#favs" id="star" data-role="button" data-icon="custom">Favorites</a></li>
+		    <li><a href="#settings" id="setting" data-role="button" data-icon="custom">Settings</a></li>
+		    <li><a href="#about" id="info" data-role="button" data-icon="custom">Info</a></li>
+                </ul>
+    </div><!--Navbar-->
+	<form>
+	<p><label for="brands">Number of Brands to display</label></p>
+	<p><input name="brands" id="brands" data-highlight="true" min="0" max="100" value="10" type="range"></p>
+	<p><label for="pictures">Number of Pictures to display</label></p>
+	<p><input name="pictures" id="pictures" data-highlight="true" min="0" max="100" value="20" type="range"></p>
+	</form>
+	<h1><a href="#" input type="button" data-inline = "true" onclick="applySettings()"> Apply </a></h1>
+	
+	</div><!--Navbar-->
+	
+    </div><!--Footer-->
+</script><!--favResults-->
+    <!-------------------------------------------about-------------------------->
+    
+    <script type="text/template" id="about">
+        
+        <div data-role="header" data-position="fixed">
+            <h1>About ORAZ</h1>
+        </div>
+	
+	<div data-role="navbar" class="nav-glyphish-example" data-theme="d" data-position="fixed">
+	  <ul>
+	      <li><a href="#" id="house" data-role="button" data-icon="custom" data-role="notext">Home</a></li>
+	      <li><a href="#favs" id="star" data-role="button" data-icon="custom">Favorites</a></li>
+	      <li><a href="#settings" id="setting" data-role="button" data-icon="custom">Settings</a></li>
+	      <li><a href="#about" id="info" data-role="button" data-icon="custom">Info</a></li>
+	  </ul>
+	</div><!--Navbar-->
+        
+        <div data-role="content">
+            <p>
+                Created By Orazio Lentini and Krunal Intwala.
+            </p>                
+        </div>
+    </script><!--Info-->
+    
+    <!-------------------------------------------results-------------------------->
+    
+    <script type="text/template" id="results">
+        
+        <div data-role="header">
+            <h1>Images</h1>
+        </div>
+	
+	<div data-role="navbar" class="nav-glyphish-example" data-theme="d">
+		<ul>
+		    <li><a href="#" id="house" data-role="button" data-icon="custom" data-role="notext">Home</a></li>
+		    <li><a href="#favs" id="star" data-role="button" data-icon="custom">Favorites</a></li>
+		    <li><a href="#cameraList" onclick="reloadModels()" id="lists" data-role="button" data-icon="custom">Models</a></li>
+		    <li><a href="#about" id="info" data-role="button" data-icon="custom">Info</a></li>
+                </ul>
+	</div><!--Navbar-->
+       
+        <div data-role-"content">
+          <div class="ui-grid-c" id="photolist">
+          </div>
+	</div>
+	
+	<div data-role="footer" data-position="fixed" data-theme="d">
+	    <div data-role="navbar">
+		<ul>
+		    <li><a onclick="addFavs()" id="addf" data-role="button" data-icon="custom">Add To Favorites</a></li>
+		</ul>
+	    </div><!--Navbar-->
+	</div><!--Footer-->
+        
+    </script><!--Results-->
+    
+    <!-------------------------------------------favorites Results-------------------------->
+    
+    <script type="text/template" id="favResults">
+        
+        <div data-role="header">
+            <h1>Images</h1>
+        </div>
+	
+	<div data-role="navbar" class="nav-glyphish-example" data-theme="d" data-position="fixed">
+	  <ul>
+	      <li><a href="#" id="house" data-role="button" data-icon="custom" data-role="notext">Home</a></li>
+	      <li><a href="#favs" id="star" data-role="button" data-icon="custom">Favorites</a></li>
+	      <li><a href="#settings" id="setting" data-role="button" data-icon="custom">Settings</a></li>
+	      <li><a href="#about" id="info" data-role="button" data-icon="custom">Info</a></li>
+	  </ul>
+	</div><!--Navbar-->
+       
+        <div data-role-"content">
+          <div class="ui-grid-c" id="photolist">
+          </div>
+	</div>
+        <div data-role="footer" data-position="fixed" data-iconpos="right" data-theme="d">
+	    <div data-role="navbar">
+		<ul>
+		  <a onclick="removeFavs()" id="star" data-role="button" data-icon="custom">Unfav</a>
+                </ul>
+	    </div><!--Navbar-->
+	</div><!--Footer-->
+    </script><!--favResults-->
+    
+    
+    <!-- The Scripts -->
+    <script src="lib/jquery-1.7.1.min.js"></script>
+    <script src="js/jqm-config.js"></script>
+    <script src="lib/jquery.mobile-1.0.1.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/backbone-min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/photo.js"></script> 
+</head>
+
+<body>
+</body>
+
+</html>
