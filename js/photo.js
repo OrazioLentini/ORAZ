@@ -1,4 +1,5 @@
-var apiKey = "cbb61449315fa2eb1cd8cda781f00b40";
+var apiKey = "cf63f8b2d5f0a63ef88e575fd4c70036";
+
 function getCameraModels() {
     getModels(document.getElementById("pictureInput").value);
 
@@ -6,9 +7,7 @@ function getCameraModels() {
 function getPictures() {
     getPhotos(document.getElementById("pictureInput").value);
 }
-function getFavs() {
-    loadFavs();
-}
+
 
 function applySettings(){
     numbrand = document.getElementById("brands").value;
@@ -75,7 +74,7 @@ function getPhotos(model){
   s = model;
    var numPics = localStorage.getItem('numofPics');
   if(numPics != null){numPics = numPics}
-  else {numPics = 20}
+  else {numPics = 10}
   saveModel(s);
   //alert(s);
   $.ajax({
@@ -92,6 +91,7 @@ function getPhotos(model){
       success: function(rsp){
         window.rsp = rsp;
         console.log(rsp);
+	if(rsp.photos != null){
         var output='';
         var head='';
 	output += '<div data-role="header"><h1><center>'+s+'</center></h1></div>';
@@ -105,7 +105,12 @@ function getPhotos(model){
           output += '</div>';
         } // go through each photo
         $('#photolist').html(output);
-        
+	}
+	 else{
+	alert("Error, flickr Timed Out!");
+	$("#").html;
+	
+      }
       }
     });
 }
@@ -130,6 +135,7 @@ function addFavs(){
 }
 
 function loadFavs() {
+  
   console.log(JSON.parse(localStorage.getItem("key")));
   var array = JSON.parse(localStorage.getItem("key"));
   //alert(array[5]);
@@ -175,6 +181,9 @@ function saveBrand(s){
 
 function reloadModels(){
   s = sessionStorage.getItem("saveBrand");
+   numbrands = localStorage.getItem('numofBrand');
+  if(numbrands != null){numbrands = numbrands}
+  else {numbrands = 10}
   //alert(s);
   $.ajax({
     url: "http://api.flickr.com/services/rest/?",
@@ -190,7 +199,7 @@ function reloadModels(){
       window.rsp = rsp;
       console.log(rsp);
       $("#cameraModels ul").empty();
-      for (var i=0; i<15; i++) {
+      for (var i=0; i<numbrands; i++) {
           camera = rsp.cameras.camera[i];
           var brand = rsp.cameras.brand;
           var model = camera.id;
