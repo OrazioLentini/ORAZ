@@ -17,12 +17,16 @@ function applySettings(){
     storePSetting(numPics);
  
 }
+
+
 function storeBSetting(numofBrands){
   localStorage.setItem('numofBrand',numofBrands);
 }
 function storePSetting(numofPics){
   localStorage.setItem("numofPics", numofPics);
 }
+
+
 function getModels(str){
   s = str;
   
@@ -145,19 +149,20 @@ function clearFavs(){
 
 function removeFavs() {
 
+  
  var json = JSON.parse(localStorage.getItem("key"));
-
+ 
     console.log(localStorage.getItem("key"));
 
    console.log(localStorage.getItem("key"));
-  for (var i=0;i<json.length;i++){
+for (var i=0;i<json.length;i++){
   console.log(json[i].id);
         if (json[i].id == s) json.splice(i,1);
 	localStorage.setItem("key", JSON.stringify(json));
 //localStorage["key"] = JSON.stringify(json);
-  }
-    console.log(localStorage.getItem("key"));
-     alert( s + ' is removed from the favorites');
+}
+  console.log(localStorage.getItem("key"));
+   alert( s + ' is removed from the favorites');
 }
 
 

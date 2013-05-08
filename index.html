@@ -13,7 +13,7 @@
         <script type="text/template" id="home">
         
         <div data-role="header" data-theme="a">
-            <h1>ORAZ</h1>
+            <h1>Oraz</h1>
 	    <div data-role="navbar" class="nav-glyphish-example">
 		  <ul>
 		      <li><a href="#" data-theme="d" id="house" data-role="button" data-icon="custom" data-role="notext">Home</a></li>
@@ -25,16 +25,18 @@
 	</div>	
 	
         <div data-role="content" id="h">
-          <p></p><p></p>
-          <input type="search" name="search" id="pictureInput" value="" class="but" placeholder="Search Camera or Pictures..."/>
-            
-           <div id=searchbuttons data-role="controlgroup" data-type="horizontal">
-	        <a href="#cameraList" input type="button"  data-inline = "true" value="Search Pictures" onclick="getCameraModels()">Search by Brand</a>
-	        <a href="#results" input type="button"  data-inline = "true" value="Search Pictures" onclick="getPictures()">Search by Camera</a>
-	    </div>
-	    
-	    <p>Created By Orazio Lentini and Krunal Intwala.</p>
-	    <p>Powered by flickr</p> 
+          <p></p>
+	  <h1>Search for Pictures Taken by Cameras and Phones.</h1>
+          <input type="search" name="search" id="pictureInput" value="" class="but" placeholder="Search by Brand, Models or Phones..."/>
+          
+	  <p></p>
+          <div id="searchbuttons" data-role="controlgroup" data-type="horizontal">
+	    <a href="#cameraList" input type="button"  data-inline = "true" value="Search Pictures" onclick="getCameraModels()">Brand</a>
+	    <a href="#results" input type="button"  data-inline = "true"  value="Search Pictures" onclick="getPictures()">Camera</a>
+	  </div>
+	   
+    	  <p>Created By Orazio Lentini and Krunal Intwala</p>
+	  <p>Powered by flickr</p> 
 	</div>
 
     
@@ -85,8 +87,8 @@
          <div data-role="footer" data-position="fixed" data-theme="d">
 	    <div data-role="navbar">
 		<ul>
-		  <a  id="refresh" data-icon="custom" data-iconpos="right" onclick="loadFavs()">Update List</a>
-		  <a  id="delete" data-icon="custom" data-iconpos="right" onclick="clearFavs()">Clear List</a>
+		  <a  id="refresh" data-icon="custom" data-role="button" data-iconpos="top" onclick="loadFavs()">Update List</a>
+		  <a  id="delete" data-icon="custom" data-role="button" data-iconpos="top" onclick="clearFavs()">Clear List</a>
 		</ul>
 	    </div><!--Navbar-->
 	</div><!--Footer-->
@@ -127,7 +129,7 @@
     <script type="text/template" id="about">
         
         <div data-role="header" data-theme="a">
-            <h1>About ORAZ</h1>
+            <h1>About Oraz</h1>
 	    <div data-role="navbar" class="nav-glyphish-example">
 		  <ul>
 		      <li><a href="#" data-theme="d" id="house" data-role="button" data-icon="custom" data-role="notext">Home</a></li>
@@ -139,9 +141,14 @@
         </div>
         
         <div data-role="content">
-            <p>
-                Created By Orazio Lentini and Krunal Intwala.
-            </p>                
+	  <p><b>Oraz</b> - An application created by the worlds best programmers Orazio Lentini and Krunal Intwala.</p>
+	  <p>If you are in dire need to buy the best camera use ORAZ!</p>
+	  <p>This application allows users to view images taken by cameras or phones. This assists users when they are purchasing a camera or phone. Using flickr services to retrieve brands, models and images.</p>
+	  <p>It uses jQuery Mobile, JavaScript, Backbone js, CSS, flickr API, and HTML5.</p>
+	  <br><hr>
+          <p><b>Created By Orazio Lentini and Krunal Intwala.</b></p>
+	  <p><a href="https://github.com/OrazioLentini/ORAZ">View on Github</a></p>
+	  
         </div>
     </script><!--Info-->
     
@@ -196,10 +203,10 @@
           <div class="ui-grid-c" id="photolist">
           </div>
 	</div>
-        <div data-role="footer" data-position="fixed" data-iconpos="right" data-theme="d">
+        <div data-role="footer" data-position="fixed" data-theme="d" class="ui-grid-solo">
 	    <div data-role="navbar">
 		<ul>
-		  <a onclick="removeFavs()" id="star" data-role="button" data-icon="custom">Unfav</a>
+		  <li><a onclick="removeFavs()" id="star" data-role="button" data-icon="custom">Unfav</a></li>
                 </ul>
 	    </div><!--Navbar-->
 	</div><!--Footer-->

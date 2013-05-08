@@ -1,11 +1,18 @@
+br {
+  display: block;
+  margin: 2px ;
+}
+data-highlight{
+    color: blue;
+}
 #searchbuttons{
-    text-align: center;   
+    text-align: center;
 }
 
 h1{
     text-align: center;
     
-    font-size: large;
+    font-size: small;
 }
 h2 {
     text-align: center;
@@ -78,7 +85,7 @@ img {
 
 #photolist img {
 	width: 300%;
-        max-height: 300%;
+        height: auto;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	-border-radius: 10px;
@@ -93,13 +100,22 @@ img {
 	-moz-border-radius: 10px;
 	-border-radius: 10px;
 	margin: 0 auto;
-}*/
+}
 #photolist.ui-grid-a {
 	width: 300%;
         max-height: 200%;
 	padding: 0;
 	margin: 25%;
 }
+
+#photolist.ui-grid-c {
+	width: 100%;
+        max-height: 90%;
+	padding: 0;
+	margin: 0;
+        margin-left: 12%;
+        
+} */
 
 .nav-glyphish-example .ui-btn .ui-btn-inner { padding-top: 40px !important; }
 .nav-glyphish-example .ui-btn .ui-icon { width: 30px!important; height: 30px!important; margin-left: -15px !important; box-shadow: none!important; -moz-box-shadow: none!important; -webkit-box-shadow: none!important; -webkit-border-radius: 0 !important; border-radius: 0 !important; }
@@ -113,54 +129,3 @@ img {
     #about .ui-icon { background:  url(../images/about.png) 50% 50% no-repeat; color: white; background-size: 24px 22px; }
     #delete .ui-icon { background:  url(../images/delete.png) 50% 50% no-repeat; color: white; background-size: 24px 22px; }
 
-
-
-
-
-
-@media only screen 
-and (min-width : 320px)
-and (max-width : 479px) {
-    #photolist img {
-	width: 300%;
-	height: 150%;
-        max-height: 45%;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-border-radius: 10px;
-	margin-left: 50%;
-	margin-top: 10%;
-    }
-
-    #photolist.ui-grid-a {
-	    width: 300%;
-	    max-height: 200%;
-	    padding: 0;
-	    margin: 25%;
-    }
-}
-    
-    
-/* landscape */
-@media only screen 
-and (min-width : 480px)
-and (max-width : 600px) {
-    
-    #photolist img {
-	width: 300%;
-	height: 250%;
-        max-height: 125%;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-border-radius: 10px;
-	margin-left: 50%;
-	margin-top: 10%;
-    }
-
-    #photolist.ui-grid-a {
-	    width: 300%;
-	    max-height: 200%;
-	    padding: 0;
-	    margin: 25%;
-    }
-}
