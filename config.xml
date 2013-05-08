@@ -3,13 +3,16 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.phonegap.hello-world"
-        version   = "1.0.0">
+        id        = "com.phonegap.Oraz"
+        version   = "2.0.0">
 
     <name>Oraz</name>
 
     <description>
-        This is Camera search appication that displays pictures taken by specific Camera model
+ 	Goal of Oraz is to assists users to purchase a camera or phone that takes great pictures.
+	This application allows users to view and compare images taken by cameras or phones.
+	Features include adding to favorites, deleting favorites, deleting all favorites, as well as 		controlling how many camera models and images are displayed.
+
     </description>
 
     <author >
@@ -20,7 +23,7 @@
         Enable individual API permissions by defining each here.
         The 'device' permission is required for the 'deviceready' event.
     -->
-    <feature name="http://api.phonegap.com/1.0/device" />
+    <feature name="http://api.phonegap.com/2.0/device" />
 
     <!--
         If you do not want any permissions to be added to your app, add the
